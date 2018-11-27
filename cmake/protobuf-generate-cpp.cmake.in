@@ -15,14 +15,14 @@
 
 function(_find_protobuf_compiler)
   # get first directory that points into devel space of protobuf catkin workspace
-  list (GET protobuf_catkin_INCLUDE_DIRS 0 first_protobuf_catkin_include_dir)
+  list (GET protobuf3_4_1_catkin_INCLUDE_DIRS 0 first_protobuf3_4_1_catkin_include_dir)
 
   set(PROTOBUF_COMPILER_CANDIDATES
       "${CATKIN_DEVEL_PREFIX}/bin/protoc"	       # only works from same workspace 
 						       # (DEVEL_PREFIX evaluates to workspace that is built, 
-						       # not workspace where protobuf_catkin is)
+						       # not workspace where protobuf3_4_1_catkin is)
       "/opt/ros/$ENV{ROS_DISTRO}/bin/protoc"
-      "${first_protobuf_catkin_include_dir}/../bin/protoc"  # if protoc is needed from another merged workspace, 
+      "${first_protobuf3_4_1_catkin_include_dir}/../bin/protoc"  # if protoc is needed from another merged workspace, 
                                                             # use path that leads to package workspace
   )
 
@@ -33,7 +33,7 @@ function(_find_protobuf_compiler)
       return()
     endif()
   endforeach()
-  message(FATAL_ERROR "Couldn't find protobuf compiler. Please ensure that protobuf_catkin is properly installed. Checked the following paths: ${PROTOBUF_COMPILER_CANDIDATES}")
+  message(FATAL_ERROR "Couldn't find protobuf compiler. Please ensure that protobuf3_4_1_catkin is properly installed. Checked the following paths: ${PROTOBUF_COMPILER_CANDIDATES}")
 endfunction()
 
 # Legacy function for backwards compatibility.

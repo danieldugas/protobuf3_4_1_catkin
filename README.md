@@ -1,4 +1,4 @@
-protobuf_catkin
+protobuf3_4_1_catkin
 ===============
 
 A catkin wrapper for Google protocol buffers

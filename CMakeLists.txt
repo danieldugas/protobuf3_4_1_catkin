@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(protobuf_catkin)
+project(protobuf3_4_1_catkin)
 
 find_package(catkin_simple REQUIRED)
 catkin_simple()
@@ -9,7 +9,7 @@ include(ExternalProject)
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 
 ExternalProject_Add(protobuf_src
-  URL https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
+  URL https://github.com/google/protobuf/releases/download/v3.4.1/protobuf-cpp-3.4.1.tar.gz
   UPDATE_COMMAND ""
   PATCH_COMMAND patch -p0 < ${CMAKE_SOURCE_DIR}/unused_parameter_warnings.patch &&
                 patch -p0 < ${CMAKE_SOURCE_DIR}/unused_parameter_warnings_wire_format.patch
